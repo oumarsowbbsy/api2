@@ -4,7 +4,7 @@ header("Access-Control-Allow-Origin: *");
 header("Access-Control-Allow-Methods: PUT, GET, POST");
 $target_path = "uploads/";
 
-$target_path = $target_path . basename( $_FILES['file']['name']);
+$target_path = $target_path . basename( $_FILES['File']['name']);
 $data = json_decode(file_get_contents("php://input"));
 var_dump($data);
 if(move_uploaded_file($_FILES['File']['tmp_name'], $target_path)) {
