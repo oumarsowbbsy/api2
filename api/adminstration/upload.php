@@ -2,10 +2,11 @@
 header('Content-Type: application/json; charset=utf-8');
 header("Access-Control-Allow-Origin: *");
 header("Access-Control-Allow-Methods: PUT, GET, POST");
-$target_path = "/uploads/";
+$target_path = "uploads/";
 
 $target_path = $target_path . basename( $_FILES['file']['name']);
-print_r($target_path);
+$data = json_decode(file_get_contents("php://input"));
+var_dump($data);
 if(move_uploaded_file($_FILES['file']['tmp_name'], $target_path)) {
     header('Content-type: application/json');
     $data = ['success' => true, 'message' => 'Upload and move success'];
