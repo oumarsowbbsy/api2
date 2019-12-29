@@ -7,7 +7,7 @@ $target_path = "uploads/";
 $target_path = $target_path . basename( $_FILES['file']['name']);
 $data = json_decode(file_get_contents("php://input"));
 var_dump($data);
-if(move_uploaded_file($_FILES['file']['tmp_name'], $target_path)) {
+if(move_uploaded_file($_FILES['File']['tmp_name'], $target_path)) {
     header('Content-type: application/json');
     $data = ['success' => true, 'message' => 'Upload and move success'];
     echo json_encode( $data );
